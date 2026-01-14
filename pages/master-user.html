@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master User - DESAKU">
+    <title>DESAKU - Master User</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>DESAKU</h2>
+                <p>Administrator</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="../dashboard/admin.html">
+                        <i>📊</i> Dashboard
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="master-user.html">
+                        <i>👥</i> Master User
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h1>Master User</h1>
+                <div class="user-info">
+                    <span id="userName">Administrator</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Daftar User</h3>
+                    <button class="btn btn-success" onclick="openUserModal()">Tambah User</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table id="userTable">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Nama Lengkap</th>
+                                    <th>Role</th>
+                                    <th>RT/RW</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- User Modal -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tambah User</h3>
+                <button class="close-btn" onclick="closeUserModal()">×</button>
+            </div>
+            
+            <form id="userForm">
+                <input type="hidden" id="userId">
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="username">Username *</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="fullname">Nama Lengkap *</label>
+                        <input type="text" id="fullname" required>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="role">Role *</label>
+                        <select id="role" required>
+                            <option value="">Pilih Role</option>
+                            <option value="admin">Administrator</option>
+                            <option value="rt">RT</option>
+                            <option value="rw">RW</option>
+                            <option value="kepala-desa">Kepala Desa</option>
+                            <option value="warga">Warga</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="rt">RT</label>
+                        <input type="text" id="rt">
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="rw">RW</label>
+                        <input type="text" id="rw">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <button type="button" class="btn btn-secondary" onclick="closeUserModal()">Batal</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../js/auth.js"></script>
+    <script src="../js/master.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pengaturan - DESAKU">
+    <title>DESAKU - Pengaturan</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>DESAKU</h2>
+                <p>Administrator</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="../dashboard/admin.html">
+                        <i>📊</i> Dashboard
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="setting.html">
+                        <i>⚙️</i> Pengaturan
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h1>Pengaturan Sistem</h1>
+                <div class="user-info">
+                    <span id="userName">Administrator</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Informasi Desa</h3>
+                </div>
+                <div class="card-body">
+                    <form id="desaForm">
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="namaDesa">Nama Desa *</label>
+                                <input type="text" id="namaDesa" required>
+                            </div>
+                            
+                            <div class="form-col">
+                                <label for="kecamatan">Kecamatan *</label>
+                                <input type="text" id="kecamatan" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="kabupaten">Kabupaten *</label>
+                                <input type="text" id="kabupaten" required>
+                            </div>
+                            
+                            <div class="form-col">
+                                <label for="provinsi">Provinsi *</label>
+                                <input type="text" id="provinsi" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="alamatDesa">Alamat Lengkap</label>
+                                <textarea id="alamatDesa" rows="3"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-col">
+                                <label for="kontak">Kontak</label>
+                                <input type="text" id="kontak">
+                            </div>
+                            
+                            <div class="form-col">
+                                <label for="email">Email</label>
+                                <input type="email" id="email">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success">Simpan Pengaturan</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Logo & Branding</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="logoUpload">Upload Logo Desa</label>
+                            <input type="file" id="logoUpload" accept="image/*">
+                            <div id="logoPreview" class="image-preview"></div>
+                        </div>
+                        
+                        <div class="form-col">
+                            <label for="backgroundUpload">Upload Background</label>
+                            <input type="file" id="backgroundUpload" accept="image/*">
+                            <div id="backgroundPreview" class="image-preview"></div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-success" onclick="saveBranding()">Simpan Branding</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/auth.js"></script>
+    <script src="../js/master.js"></script>
+</body>
+</html>

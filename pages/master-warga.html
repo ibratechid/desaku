@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master Warga - DESAKU">
+    <title>DESAKU - Master Warga</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>DESAKU</h2>
+                <p>Administrator</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="../dashboard/admin.html">
+                        <i>📊</i> Dashboard
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="master-warga.html">
+                        <i>👨‍👩‍👧‍👦</i> Master Warga
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h1>Master Data Warga</h1>
+                <div class="user-info">
+                    <span id="userName">Administrator</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Daftar Warga</h3>
+                    <button class="btn btn-success" onclick="openWargaModal()">Tambah Warga</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table id="wargaTable">
+                            <thead>
+                                <tr>
+                                    <th>NIK</th>
+                                    <th>Nama</th>
+                                    <th>JK</th>
+                                    <th>RT/RW</th>
+                                    <th>Alamat</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Warga Modal -->
+    <div id="wargaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tambah Data Warga</h3>
+                <button class="close-btn" onclick="closeWargaModal()">×</button>
+            </div>
+            
+            <form id="wargaForm">
+                <input type="hidden" id="wargaId">
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="nik">NIK *</label>
+                        <input type="text" id="nik" required>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="nama">Nama Lengkap *</label>
+                        <input type="text" id="nama" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="jk">Jenis Kelamin *</label>
+                        <select id="jk" required>
+                            <option value="">Pilih</option>
+                            <option value="L">Laki-laki</option>
+                            <option value="P">Perempuan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="tempatLahir">Tempat Lahir *</label>
+                        <input type="text" id="tempatLahir" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="tanggalLahir">Tanggal Lahir *</label>
+                        <input type="date" id="tanggalLahir" required>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="pekerjaan">Pekerjaan</label>
+                        <input type="text" id="pekerjaan">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="statusPerkawinan">Status Perkawinan</label>
+                        <select id="statusPerkawinan">
+                            <option value="">Pilih</option>
+                            <option value="Belum Kawin">Belum Kawin</option>
+                            <option value="Kawin">Kawin</option>
+                            <option value="Cerai Hidup">Cerai Hidup</option>
+                            <option value="Cerai Mati">Cerai Mati</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="kewarganegaraan">Kewarganegaraan</label>
+                        <input type="text" id="kewarganegaraan" value="Indonesia">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="noHp">No HP</label>
+                        <input type="text" id="noHp">
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="rt">RT</label>
+                        <input type="text" id="rt">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="rw">RW</label>
+                        <input type="text" id="rw">
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="dusun">Dusun</label>
+                        <input type="text" id="dusun">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="kelurahan">Kelurahan/Desa</label>
+                        <input type="text" id="kelurahan">
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="kecamatan">Kecamatan</label>
+                        <input type="text" id="kecamatan">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="kabupaten">Kabupaten</label>
+                        <input type="text" id="kabupaten">
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="provinsi">Provinsi</label>
+                        <input type="text" id="provinsi">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <button type="button" class="btn btn-secondary" onclick="closeWargaModal()">Batal</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../js/auth.js"></script>
+    <script src="../js/master.js"></script>
+</body>
+</html>
