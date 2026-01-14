@@ -24,22 +24,21 @@ class DesakuStorage {
     static initializeSampleData() {
         // Users
         const users = [
-            { id: 'user-1', username: 'admin', password: 'admin123', fullname: 'Administrator', role: 'admin' },
-            { id: 'user-2', username: 'rt1', password: 'rt123', fullname: 'RT 01', role: 'rt', rt: '01', rw: '01' },
-            { id: 'user-3', username: 'rt2', password: 'rt123', fullname: 'RT 02', role: 'rt', rt: '02', rw: '01' },
-            { id: 'user-4', username: 'rw1', password: 'rw123', fullname: 'RW 01', role: 'rw', rw: '01' },
-            { id: 'user-5', username: 'kepala', password: 'kepala123', fullname: 'Kepala Desa', role: 'kepala-desa' },
-            { id: 'user-6', username: 'warga1', password: 'warga123', fullname: 'Budi Santoso', role: 'warga', wargaId: 'warga-1' },
-            { id: 'user-7', username: 'warga2', password: 'warga123', fullname: 'Siti Aminah', role: 'warga', wargaId: 'warga-2' }
+            { id: 'user-1', username: 'admin', password: 'demo123', fullname: 'Administrator', role: 'admin' },
+            { id: 'user-2', username: 'rt1', password: 'demo123', fullname: 'RT 01', role: 'rt', rt: '01', rw: '01' },
+            { id: 'user-3', username: 'rw1', password: 'demo123', fullname: 'RW 01', role: 'rw', rw: '01' },
+            { id: 'user-4', username: 'kepala', password: 'demo123', fullname: 'Kepala Desa', role: 'kepala-desa' },
+            { id: 'user-5', username: 'warga1', password: 'demo123', fullname: 'Budi Santoso', role: 'warga', wargaId: 'warga-1' },
+            { id: 'user-6', username: 'warga2', password: 'demo123', fullname: 'Siti Aminah', role: 'warga', wargaId: 'warga-2' }
         ];
         
         // Jenis Surat
         const jenisSurat = [
-            { id: 'jenis-1', kode: 'SK', nama: 'Surat Keterangan', formatNomor: 'SK/{nomor}/{bulan}/{tahun}' },
-            { id: 'jenis-2', kode: 'SP', nama: 'Surat Pengantar', formatNomor: 'SP/{nomor}/{bulan}/{tahun}' },
-            { id: 'jenis-3', kode: 'SU', nama: 'Surat Usaha', formatNomor: 'SU/{nomor}/{bulan}/{tahun}' },
-            { id: 'jenis-4', kode: 'SD', nama: 'Surat Domisili', formatNomor: 'SD/{nomor}/{bulan}/{tahun}' },
-            { id: 'jenis-5', kode: 'SKK', nama: 'Surat Keterangan Kelakuan Baik', formatNomor: 'SKK/{nomor}/{bulan}/{tahun}' }
+            { id: 'jenis-1', kode: 'SK', nama: 'Surat Keterangan', formatNomor: 'SK/{nomor}/{bulan}/{tahun}', deskripsi: 'Surat untuk keterangan resmi dari desa' },
+            { id: 'jenis-2', kode: 'SP', nama: 'Surat Pengantar', formatNomor: 'SP/{nomor}/{bulan}/{tahun}', deskripsi: 'Surat pengantar untuk keperluan administrasi' },
+            { id: 'jenis-3', kode: 'SU', nama: 'Surat Usaha', formatNomor: 'SU/{nomor}/{bulan}/{tahun}', deskripsi: 'Surat keterangan usaha mikro/kecil' },
+            { id: 'jenis-4', kode: 'SD', nama: 'Surat Domisili', formatNomor: 'SD/{nomor}/{bulan}/{tahun}', deskripsi: 'Surat keterangan domisili tempat tinggal' },
+            { id: 'jenis-5', kode: 'SKK', nama: 'Surat Keterangan Kelakuan Baik', formatNomor: 'SKK/{nomor}/{bulan}/{tahun}', deskripsi: 'Surat keterangan kelakuan baik' }
         ];
 
         // Warga
@@ -81,25 +80,6 @@ class DesakuStorage {
                 kecamatan: 'Kecamatan Maju',
                 kabupaten: 'Kabupaten Maju',
                 provinsi: 'Jawa Barat'
-            },
-            {
-                id: 'warga-3',
-                nik: '1234567890123453',
-                nama: 'Ahmad Subagja',
-                jk: 'L',
-                tempatLahir: 'Surabaya',
-                tanggalLahir: '1978-11-30',
-                pekerjaan: 'Wiraswasta',
-                statusPerkawinan: 'Kawin',
-                kewarganegaraan: 'Indonesia',
-                noHp: '081234567892',
-                rt: '02',
-                rw: '01',
-                dusun: 'Dusun 2',
-                kelurahan: 'Desa Maju',
-                kecamatan: 'Kecamatan Maju',
-                kabupaten: 'Kabupaten Maju',
-                provinsi: 'Jawa Barat'
             }
         ];
 
@@ -111,7 +91,9 @@ class DesakuStorage {
             provinsi: 'Jawa Barat',
             alamatDesa: 'Jl. Raya Desa No. 1',
             kontak: '081234567890',
-            email: 'desamaju@email.com'
+            email: 'desamaju@email.com',
+            logo: null,
+            background: null
         };
 
         // Surat Counters
@@ -123,12 +105,73 @@ class DesakuStorage {
             'SKK': 1
         };
 
+        // Sample Surat dengan Approval Workflow
+        const suratList = [
+            {
+                id: 'surat-1',
+                nomor: 'SK/001/01/2025',
+                jenis: 'Surat Keterangan',
+                jenisId: 'jenis-1',
+                tanggal: '2025-01-14',
+                pemohon: 'Budi Santoso',
+                pemohonId: 'warga-1',
+                rt: '01',
+                rw: '01',
+                isi: 'Surat keterangan bahwa yang tersebut di bawah ini benar-benar warga Desa Maju.',
+                status: 'pending',
+                currentApproval: 'rt',
+                approvalHistory: [
+                    {
+                        id: 'approval-1',
+                        role: 'warga',
+                        action: 'submit',
+                        userId: 'warga1',
+                        date: '2025-01-14T08:00:00',
+                        notes: 'Surat diajukan'
+                    }
+                ]
+            },
+            {
+                id: 'surat-2',
+                nomor: 'SP/001/01/2025',
+                jenis: 'Surat Pengantar',
+                jenisId: 'jenis-2',
+                tanggal: '2025-01-13',
+                pemohon: 'Siti Aminah',
+                pemohonId: 'warga-2',
+                rt: '01',
+                rw: '01',
+                isi: 'Surat pengantar untuk keperluan pembuatan KTP.',
+                status: 'process',
+                currentApproval: 'rw',
+                approvalHistory: [
+                    {
+                        id: 'approval-2',
+                        role: 'warga',
+                        action: 'submit',
+                        userId: 'warga2',
+                        date: '2025-01-13T09:00:00',
+                        notes: 'Surat diajukan'
+                    },
+                    {
+                        id: 'approval-3',
+                        role: 'rt',
+                        action: 'approve',
+                        userId: 'rt1',
+                        date: '2025-01-13T14:30:00',
+                        notes: 'Surat disetujui di tingkat RT'
+                    }
+                ]
+            }
+        ];
+
         // Set all data
         this.setItem('users', users);
         this.setItem('jenisSurat', jenisSurat);
         this.setItem('warga', warga);
         this.setItem('desa', desa);
         this.setItem('suratCounters', counters);
+        this.setItem('surat', suratList);
     }
 }
 

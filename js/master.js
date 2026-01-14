@@ -641,3 +641,8 @@ function setupFormHandlers() {
 
 // Initialize form handlers when DOM is loaded
 setupFormHandlers();
+
+// Add form handlers setup to DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    setupFormHandlers();
+});
