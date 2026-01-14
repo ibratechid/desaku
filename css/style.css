@@ -1,13 +1,15 @@
-/* Base Styles */
+/* Base Styles - Ekonomi Lampung Color Scheme */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --success-color: #27ae60;
-    --warning-color: #f39c12;
-    --danger-color: #e74c3c;
-    --light-color: #ecf0f1;
-    --dark-color: #2c3e50;
+    --primary-color: #1B5E20;      /* Biru tua Ekonomi Lampung */
+    --secondary-color: #4CAF50;    /* Hijau ekonomi */
+    --accent-color: #FFD700;       /* Emas */
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --danger-color: #F44336;
+    --light-color: #F1F8E9;        /* Light green */
+    --dark-color: #1B5E20;
     --white-color: #ffffff;
+    --text-color: #333333;
 }
 
 * {
@@ -29,7 +31,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
 .login-container {
@@ -321,7 +323,55 @@ table tr:hover {
     margin-bottom: 15px;
 }
 
-/* Status Badges */
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-card h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.stat-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.stat-card.total {
+    background: linear-gradient(135deg, #1B5E20, #2E7D32);
+}
+
+.stat-card.pending {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+}
+
+.stat-card.process {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.stat-card.approved {
+    background: linear-gradient(135deg, #4CAF50, #388E3C);
+}
 .status-badge {
     display: inline-block;
     padding: 5px 10px;
@@ -483,4 +533,83 @@ table tr:hover {
 
 .tab-content.active {
     display: block;
+}
+
+/* Toast Notifications */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    animation: slideIn 0.3s ease-out;
+}
+
+.toast-success {
+    background-color: var(--success-color);
+}
+
+.toast-error {
+    background-color: var(--danger-color);
+}
+
+.toast-warning {
+    background-color: var(--warning-color);
+}
+
+.toast-info {
+    background-color: var(--secondary-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Image Preview */
+.image-preview {
+    margin-top: 10px;
+    max-width: 200px;
+    max-height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: none;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-preview.show {
+    display: block;
+}
+
+/* Small buttons */
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.85rem;
 }

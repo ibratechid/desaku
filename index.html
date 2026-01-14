@@ -6,6 +6,8 @@
     <meta name="description" content="Sistem Pembuatan Surat Desa - DESAKU">
     <title>DESAKU - Login</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- HTML2PDF.js for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body class="login-page">
     <div class="login-container">
@@ -43,9 +45,19 @@
             </form>
             
             <div id="errorMessage" class="error-message"></div>
+            
+            <div style="margin-top: 20px; padding: 15px; background-color: #e8f5e8; border-radius: 5px; font-size: 0.9rem;">
+                <h4>Demo Account:</h4>
+                <p><strong>Administrator:</strong> admin / demo123</p>
+                <p><strong>RT:</strong> rt1 / demo123</p>
+                <p><strong>RW:</strong> rw1 / demo123</p>
+                <p><strong>Kepala Desa:</strong> kepala / demo123</p>
+                <p><strong>Warga:</strong> warga1 / demo123</p>
+            </div>
         </div>
     </div>
     
     <script src="js/auth.js"></script>
+    <script src="js/storage.js"></script>
 </body>
 </html>
