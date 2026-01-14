@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master Jenis Surat - DESAKU">
+    <title>DESAKU - Master Jenis Surat</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>DESAKU</h2>
+                <p>Administrator</p>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="../dashboard/admin.html">
+                        <i>📊</i> Dashboard
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="master-jenis-surat.html">
+                        <i>📄</i> Master Jenis Surat
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h1>Master Jenis Surat</h1>
+                <div class="user-info">
+                    <span id="userName">Administrator</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Daftar Jenis Surat</h3>
+                    <button class="btn btn-success" onclick="openJenisSuratModal()">Tambah Jenis Surat</button>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table id="jenisSuratTable">
+                            <thead>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama Jenis Surat</th>
+                                    <th>Format Nomor</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Jenis Surat Modal -->
+    <div id="jenisSuratModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tambah Jenis Surat</h3>
+                <button class="close-btn" onclick="closeJenisSuratModal()">×</button>
+            </div>
+            
+            <form id="jenisSuratForm">
+                <input type="hidden" id="jenisSuratId">
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="kodeJenis">Kode *</label>
+                        <input type="text" id="kodeJenis" required>
+                    </div>
+                    
+                    <div class="form-col">
+                        <label for="namaJenis">Nama Jenis Surat *</label>
+                        <input type="text" id="namaJenis" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="formatNomor">Format Nomor *</label>
+                        <input type="text" id="formatNomor" placeholder="Contoh: SK/{nomor}/{bulan}/{tahun}" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <button type="button" class="btn btn-secondary" onclick="closeJenisSuratModal()">Batal</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../js/auth.js"></script>
+    <script src="../js/master.js"></script>
+</body>
+</html>

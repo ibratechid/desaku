@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistem Pembuatan Surat Desa - DESAKU">
+    <title>DESAKU - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-header">
+            <h1>DESAKU</h1>
+            <p>Sistem Pembuatan Surat Desa</p>
+        </div>
+        
+        <div class="login-form">
+            <h2>Masuk</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" name="role" required>
+                        <option value="">Pilih Role</option>
+                        <option value="admin">Administrator</option>
+                        <option value="rt">RT (Rukun Tetangga)</option>
+                        <option value="rw">RW (Rukun Warga)</option>
+                        <option value="kepala-desa">Kepala Desa</option>
+                        <option value="warga">Warga</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-primary">Masuk</button>
+            </form>
+            
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
